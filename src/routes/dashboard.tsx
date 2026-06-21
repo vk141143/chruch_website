@@ -23,7 +23,7 @@ import { SubscriptionPage } from "@/components/dashboard/SubscriptionPage";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "My Dashboard — Kingdom Life Fellowship" },
+      { title: "My Dashboard — WordnWorship Fellowship" },
       { name: "robots", content: "noindex" },
     ],
   }),

@@ -6,10 +6,10 @@ import { useState } from "react";
 export const Route = createFileRoute("/sermons")({
   head: () => ({
     meta: [
-      { title: "Sermons — Kingdom Life Fellowship" },
-      { name: "description", content: "Watch and listen to recent sermons from Kingdom Life Fellowship. Filter by topic, speaker, and Scripture." },
+      { title: "Sermons — WordnWorship Fellowship" },
+      { name: "description", content: "Watch and listen to recent sermons from WordnWorship Fellowship. Filter by topic, speaker, and Scripture." },
       { property: "og:title", content: "Sermons" },
-      { property: "og:description", content: "Watch and listen to recent sermons from Kingdom Life Fellowship." },
+      { property: "og:description", content: "Watch and listen to recent sermons from WordnWorship Fellowship." },
     ],
   }),
   component: SermonsPage,

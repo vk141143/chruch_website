@@ -64,7 +64,7 @@ export function DashboardLayout({ user, view, onViewChange, children, unreadCoun
         </span>
         {!collapsed && (
           <div>
-            <p className="font-serif text-white text-base leading-tight">Kingdom Life</p>
+            <p className="font-serif text-white text-base leading-tight">WordnWorship</p>
             <p className="text-[9px] tracking-[0.3em] text-gold uppercase">Fellowship</p>
           </div>
         )}

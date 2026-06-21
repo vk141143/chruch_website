@@ -5,9 +5,9 @@ import { Gift, Repeat, Globe2, Building2, HeartHandshake } from "lucide-react";
 export const Route = createFileRoute("/donations")({
   head: () => ({
     meta: [
-      { title: "Give — Kingdom Life Fellowship" },
-      { name: "description", content: "Partner with the mission of Kingdom Life Fellowship through one-time giving, monthly support, missions, building fund, and charity projects." },
-      { property: "og:title", content: "Give to Kingdom Life" },
+      { title: "Give — WordnWorship Fellowship" },
+      { name: "description", content: "Partner with the mission of WordnWorship Fellowship through one-time giving, monthly support, missions, building fund, and charity projects." },
+      { property: "og:title", content: "Give to WordnWorship" },
       { property: "og:description", content: "Support worship, teaching, missions, and outreach." },
     ],
   }),

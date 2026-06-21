@@ -5,9 +5,9 @@ import { MessageCircleHeart, HandHeart, Users, Sparkles } from "lucide-react";
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "Community — Kingdom Life Fellowship" },
+      { title: "Community — WordnWorship Fellowship" },
       { name: "description", content: "Share testimonies, prayer requests, join discussion groups and serve through volunteer opportunities." },
-      { property: "og:title", content: "Community at Kingdom Life" },
+      { property: "og:title", content: "Community at WordnWorship" },
       { property: "og:description", content: "Testimonies, prayer, groups, and volunteer opportunities." },
     ],
   }),
@@ -22,7 +22,7 @@ const FEATURES = [
 ];
 
 const TESTIMONIES = [
-  { name: "Rachel M.", text: "Kingdom Life walked with us through the hardest year of our lives. We finally found a church family that truly loves like Jesus." },
+  { name: "Rachel M.", text: "WordnWorship walked with us through the hardest year of our lives. We finally found a church family that truly loves like Jesus." },
   { name: "Andrew T.", text: "I came in skeptical and curious. A year later I was baptized. The teaching is honest, deep, and full of grace." },
   { name: "Priya & Daniel S.", text: "Our small group has become our extended family. We pray together, eat together, and grow in Christ together." },
 ];

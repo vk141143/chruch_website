@@ -95,7 +95,7 @@ export function AdminLayout({ view, onViewChange, children, pendingCount = 0 }: 
         {!collapsed && (
           <div>
             <p className="font-serif text-white text-sm leading-tight">Admin Panel</p>
-            <p className="text-[9px] tracking-[0.3em] text-gold uppercase">Kingdom Life</p>
+            <p className="text-[9px] tracking-[0.3em] text-gold uppercase">WordnWorship</p>
           </div>
         )}
       </div>

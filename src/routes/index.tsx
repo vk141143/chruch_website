@@ -11,9 +11,9 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kingdom Life Fellowship — A Christ-Centered Church Community" },
-      { name: "description", content: "Join Kingdom Life Fellowship — Sunday worship, Bible teaching, prayer, and community rooted in Jesus Christ." },
-      { property: "og:title", content: "Kingdom Life Fellowship" },
+      { title: "WordnWorship Fellowship — A Christ-Centered Church Community" },
+      { name: "description", content: "Join WordnWorship Fellowship — Sunday worship, Bible teaching, prayer, and community rooted in Jesus Christ." },
+      { property: "og:title", content: "WordnWorship Fellowship" },
       { property: "og:description", content: "Worship, the Word, and a life-giving community in Christ." },
       { property: "og:image", content: heroCross },
     ],
@@ -168,7 +168,7 @@ function Pillars() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="Why Kingdom Life"
+            eyebrow="Why WordnWorship"
             title="A people pursuing Jesus together"
             subtitle="Four convictions shape everything we do as a church family."
             center

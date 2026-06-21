@@ -5,9 +5,9 @@ import { Baby, Users, HeartHandshake, Music, Globe2, BookOpen, HandHeart, Sparkl
 export const Route = createFileRoute("/ministries")({
   head: () => ({
     meta: [
-      { title: "Ministries — Kingdom Life Fellowship" },
-      { name: "description", content: "Discover ministries at Kingdom Life Fellowship — kids, youth, worship, outreach, prayer and more." },
-      { property: "og:title", content: "Ministries at Kingdom Life" },
+      { title: "Ministries — WordnWorship Fellowship" },
+      { name: "description", content: "Discover ministries at WordnWorship Fellowship — kids, youth, worship, outreach, prayer and more." },
+      { property: "og:title", content: "Ministries at WordnWorship" },
       { property: "og:description", content: "Find your place — kids, youth, worship, prayer, outreach and missions." },
     ],
   }),

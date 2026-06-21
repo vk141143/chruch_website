@@ -16,7 +16,7 @@ import { CertificatesView, NotificationsAdminView, ReportsView, SettingsView, Ad
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Dashboard — Kingdom Life Fellowship" },
+      { title: "Admin Dashboard — WordnWorship Fellowship" },
       { name: "description", content: "Church administration panel." },
       { name: "robots", content: "noindex, nofollow" },
     ],

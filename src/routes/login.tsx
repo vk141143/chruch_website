@@ -6,7 +6,7 @@ import { login, register, getUser } from "@/lib/auth";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Login — Kingdom Life Fellowship" },
+      { title: "Login — WordnWorship Fellowship" },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -52,7 +52,7 @@ function LoginPage() {
               <Cross className="h-6 w-6 text-navy" strokeWidth={2.5} />
             </span>
             <span className="font-serif text-2xl text-navy leading-none">
-              Kingdom Life
+              WordnWorship
               <span className="block text-[10px] font-sans tracking-[0.3em] text-gold uppercase mt-1">Fellowship</span>
             </span>
           </Link>

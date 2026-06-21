@@ -106,7 +106,7 @@ export const ADMIN_SERMONS: AdminSermon[] = [
 
 export const ADMIN_EVENTS: AdminEvent[] = [
   { id: "e1", title: "Sunday Worship Service", date: "Jun 29, 2026", time: "9:00 AM", location: "Main Sanctuary", category: "Worship", capacity: 600, registered: 412, status: "Upcoming", image: "⛪" },
-  { id: "e2", title: "Summer Faith Conference", date: "Aug 2, 2026", time: "10:00 AM", location: "Kingdom Life Center", category: "Conference", capacity: 500, registered: 312, status: "Upcoming", image: "🌟" },
+  { id: "e2", title: "Summer Faith Conference", date: "Aug 2, 2026", time: "10:00 AM", location: "WordnWorship Center", category: "Conference", capacity: 500, registered: 312, status: "Upcoming", image: "🌟" },
   { id: "e3", title: "Wednesday Bible Study", date: "Jul 2, 2026", time: "7:00 PM", location: "Fellowship Hall", category: "Bible Study", capacity: 150, registered: 98, status: "Upcoming", image: "📖" },
   { id: "e4", title: "Youth Fellowship Night", date: "Jun 27, 2026", time: "6:30 PM", location: "Youth Center", category: "Youth", capacity: 150, registered: 92, status: "Upcoming", image: "🎉" },
   { id: "e5", title: "Marriage and Family Seminar", date: "Jul 19, 2026", time: "2:00 PM", location: "Fellowship Hall", category: "Seminar", capacity: 120, registered: 84, status: "Upcoming", image: "💑" },

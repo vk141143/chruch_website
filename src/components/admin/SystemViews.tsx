@@ -249,7 +249,7 @@ export function ReportsView() {
 // ── Website Settings ────────────────────────────────────────────────────────
 export function SettingsView() {
   const [settings, setSettings] = useState({
-    churchName: "Kingdom Life Fellowship",
+    churchName: "WordnWorship Fellowship",
     tagline: "A Christ-Centered Community",
     email: "info@kingdomlife.com",
     phone: "+1 (555) 234-5678",
@@ -262,7 +262,7 @@ export function SettingsView() {
     smtpHost: "smtp.sendgrid.net",
     smtpPort: "587",
     razorpayKey: "rzp_test_••••••••••••",
-    seoTitle: "Kingdom Life Fellowship — Christ-Centered Community",
+    seoTitle: "WordnWorship Fellowship — Christ-Centered Community",
     seoDesc: "A Christ-centered church family pursuing worship, the Word, and community.",
     privacyPolicy: "Your privacy is important to us. We collect only necessary information to provide our services...",
     termsConditions: "By using our platform you agree to our terms and conditions...",

@@ -25,7 +25,7 @@ export function AdminDashboard({ onViewChange }: Props) {
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
         <div className="relative">
           <p className="text-xs tracking-[0.3em] uppercase text-gold font-semibold">Admin Panel</p>
-          <h2 className="font-serif text-2xl mt-1">Kingdom Life Fellowship</h2>
+          <h2 className="font-serif text-2xl mt-1">WordnWorship Fellowship</h2>
           <p className="text-white/60 text-sm mt-1">Here's what's happening in your church today.</p>
         </div>
         <div className="relative hidden md:flex items-center gap-4 text-sm text-white/60">

@@ -6,9 +6,9 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Kingdom Life Fellowship" },
-      { name: "description", content: "Get in touch with Kingdom Life Fellowship. Visit us Sunday, send a prayer request, or contact our team." },
-      { property: "og:title", content: "Contact Kingdom Life" },
+      { title: "Contact — WordnWorship Fellowship" },
+      { name: "description", content: "Get in touch with WordnWorship Fellowship. Visit us Sunday, send a prayer request, or contact our team." },
+      { property: "og:title", content: "Contact WordnWorship" },
       { property: "og:description", content: "Visit, call, or send us a message." },
     ],
   }),

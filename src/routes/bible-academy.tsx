@@ -5,9 +5,9 @@ import { BookOpen, Video, GraduationCap, Award, PlayCircle, FileText, Lock } fro
 export const Route = createFileRoute("/bible-academy")({
   head: () => ({
     meta: [
-      { title: "Bible Academy — Kingdom Life Fellowship" },
+      { title: "Bible Academy — WordnWorship Fellowship" },
       { name: "description", content: "Free devotions and articles plus premium video courses on the Bible, theology, leadership and discipleship." },
-      { property: "og:title", content: "Kingdom Life Bible Academy" },
+      { property: "og:title", content: "WordnWorship Bible Academy" },
       { property: "og:description", content: "Learn the Word of God through devotions, courses, and video teachings." },
     ],
   }),

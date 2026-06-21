@@ -76,7 +76,7 @@ export function Header() {
             <Cross className="h-5 w-5 text-navy" strokeWidth={2.5} />
           </span>
           <span className={`font-serif text-xl leading-none ${scrolled ? "text-navy dark:text-white" : "text-white"}`}>
-            Kingdom Life
+            WordnWorship
             <span className="block text-[10px] font-sans tracking-[0.3em] text-gold uppercase mt-0.5">
               Fellowship
             </span>

@@ -74,7 +74,7 @@ export function SubscriptionPage({ isPremium, onViewChange: _onViewChange }: Pro
     <div className="p-4 md:p-6 max-w-5xl mx-auto">
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 px-4 py-1.5 text-xs text-gold font-semibold mb-3">
-          <Crown className="h-3.5 w-3.5" /> Kingdom Life Premium
+          <Crown className="h-3.5 w-3.5" /> WordnWorship Premium
         </div>
         <h2 className="font-serif text-3xl text-navy">
           Choose Your Faith Journey Plan

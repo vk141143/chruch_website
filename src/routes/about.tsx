@@ -8,9 +8,9 @@ import heroChurch from "@/assets/hero-church.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Kingdom Life Fellowship" },
-      { name: "description", content: "Our mission, vision, history, and leadership team at Kingdom Life Fellowship." },
-      { property: "og:title", content: "About Kingdom Life Fellowship" },
+      { title: "About — WordnWorship Fellowship" },
+      { name: "description", content: "Our mission, vision, history, and leadership team at WordnWorship Fellowship." },
+      { property: "og:title", content: "About WordnWorship Fellowship" },
       { property: "og:description", content: "Our mission, vision, history, and leadership." },
       { property: "og:image", content: heroChurch },
     ],
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const LEADERS = [
-  { name: "Pastor David Whitfield", role: "Senior Pastor", img: pastorSenior, bio: "Shepherding Kingdom Life since 2009, David is passionate about expository teaching and prayer." },
+  { name: "Pastor David Whitfield", role: "Senior Pastor", img: pastorSenior, bio: "Shepherding WordnWorship since 2009, David is passionate about expository teaching and prayer." },
   { name: "Pastor Caleb Reyes", role: "Youth Pastor", img: pastorYouth, bio: "Caleb leads our students into a vibrant, Christ-centered faith for the next generation." },
   { name: "Hannah Brooks", role: "Worship Leader", img: pastorWorship, bio: "Hannah leads our musical worship with songs rooted in Scripture and the gospel." },
 ];
@@ -54,7 +54,7 @@ function AboutPage() {
         <div className="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-[1fr_2fr] items-start">
           <SectionHeading eyebrow="Our History" title="From a living room to a city-wide fellowship" />
           <div className="space-y-6 text-muted-foreground leading-relaxed">
-            <p>Kingdom Life Fellowship began in 2001 with twelve people gathered in a living room, hungry for the Word and convinced that the gospel changes everything.</p>
+            <p>WordnWorship Fellowship began in 2001 with twelve people gathered in a living room, hungry for the Word and convinced that the gospel changes everything.</p>
             <p>Over the years God multiplied that small gathering into a vibrant family of believers serving across our city — through worship gatherings, Bible academies, outreach to the poor, and mission partnerships around the world.</p>
             <p>Today our heart is the same as it was at the beginning: to lift up Jesus, teach His Word faithfully, and love people well.</p>
           </div>

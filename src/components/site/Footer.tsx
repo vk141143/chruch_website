@@ -35,7 +35,7 @@ export function Footer() {
               <Cross className="h-5 w-5 text-navy" strokeWidth={2.5} />
             </span>
             <span className="font-serif text-xl">
-              Kingdom Life
+              WordnWorship
               <span className="block text-[10px] font-sans tracking-[0.3em] text-gold uppercase mt-0.5">Fellowship</span>
             </span>
           </Link>
@@ -112,7 +112,7 @@ export function Footer() {
       {/* Divider */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/50">
-          <p>© {new Date().getFullYear()} Kingdom Life Fellowship. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} WordnWorship Fellowship. All rights reserved.</p>
           <p className="font-serif italic text-gold/80 text-center">
             &ldquo;For where two or three gather in my name, there am I with them.&rdquo; — Matthew 18:20
           </p>

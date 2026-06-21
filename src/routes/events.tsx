@@ -5,9 +5,9 @@ import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Events — Kingdom Life Fellowship" },
-      { name: "description", content: "Upcoming events at Kingdom Life Fellowship: worship gatherings, prayer nights, youth fellowship, conferences, and outreach." },
-      { property: "og:title", content: "Events at Kingdom Life" },
+      { title: "Events — WordnWorship Fellowship" },
+      { name: "description", content: "Upcoming events at WordnWorship Fellowship: worship gatherings, prayer nights, youth fellowship, conferences, and outreach." },
+      { property: "og:title", content: "Events at WordnWorship" },
       { property: "og:description", content: "Worship, prayer, youth, conferences, and outreach events." },
     ],
   }),
@@ -28,7 +28,7 @@ function EventsPage() {
     <>
       <section className="pt-40 pb-16 bg-navy text-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <SectionHeading eyebrow="Events" title="What's happening at Kingdom Life" subtitle="Weekly gatherings, prayer nights, youth programs, conferences and outreach. Register and join us." center light />
+          <SectionHeading eyebrow="Events" title="What's happening at WordnWorship" subtitle="Weekly gatherings, prayer nights, youth programs, conferences and outreach. Register and join us." center light />
         </div>
       </section>
 

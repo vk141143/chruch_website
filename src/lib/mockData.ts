@@ -57,7 +57,7 @@ export const MOCK_SERMONS: Sermon[] = [
 
 export const MOCK_EVENTS: Event[] = [
   { id: "e1", title: "Sunday Worship Service", date: "Jun 29, 2026", time: "9:00 AM & 11:00 AM", location: "Main Sanctuary", type: "Worship", attendees: 412, status: "upcoming", image: "⛪" },
-  { id: "e2", title: "Summer Faith Conference", date: "Aug 2, 2026", time: "10:00 AM - 6:00 PM", location: "Kingdom Life Center", type: "Conference", attendees: 312, status: "registered", image: "🌟" },
+  { id: "e2", title: "Summer Faith Conference", date: "Aug 2, 2026", time: "10:00 AM - 6:00 PM", location: "WordnWorship Center", type: "Conference", attendees: 312, status: "registered", image: "🌟" },
   { id: "e3", title: "Wednesday Bible Study", date: "Jul 2, 2026", time: "7:00 PM", location: "Fellowship Hall", type: "Bible Study", attendees: 98, status: "upcoming", image: "📖" },
   { id: "e4", title: "Youth Fellowship Night", date: "Jun 27, 2026", time: "6:30 PM", location: "Youth Center", type: "Youth", attendees: 92, status: "registered", image: "🎉" },
   { id: "e5", title: "Prayer and Worship Evening", date: "Jul 11, 2026", time: "7:30 PM", location: "Prayer Room", type: "Prayer", attendees: 65, status: "upcoming", image: "🙏" },
@@ -83,7 +83,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
 export const MOCK_POSTS: Post[] = [
   { id: "po1", author: "Rachel Mensah", avatar: "RM", content: "\"For I know the plans I have for you\" — God is faithful! Just got confirmed for a new role. Never stop trusting Him. 🙏✨", likes: 48, comments: 12, createdAt: "2 hours ago", type: "testimony" },
   { id: "po2", author: "Andrew Thompson", avatar: "AT", content: "Wednesday Bible study was amazing tonight. Pastor David's teaching on John 15 really spoke to me. Who else was blessed?", likes: 32, comments: 8, createdAt: "5 hours ago", type: "encouragement" },
-  { id: "po3", author: "Priya Sharma", avatar: "PS", content: "\"The Lord is my shepherd, I shall not want.\" — Psalm 23:1. Starting every morning with this truth. Have a blessed day, Kingdom Life family! 🌅", likes: 61, comments: 15, createdAt: "1 day ago", type: "verse" },
+  { id: "po3", author: "Priya Sharma", avatar: "PS", content: "\"The Lord is my shepherd, I shall not want.\" — Psalm 23:1. Starting every morning with this truth. Have a blessed day, WordnWorship family! 🌅", likes: 61, comments: 15, createdAt: "1 day ago", type: "verse" },
 ];
 
 export const MOCK_ANNOUNCEMENTS: Announcement[] = [

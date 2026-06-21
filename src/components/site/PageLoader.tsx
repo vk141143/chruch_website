@@ -21,7 +21,7 @@ export function PageLoader({ children }: { children: ReactNode }) {
             <span className="absolute inset-0 rounded-full border-2 border-gold border-t-transparent animate-spin" />
             <span className="font-serif text-2xl text-gold">✝</span>
           </span>
-          <p className="text-xs tracking-[0.35em] uppercase text-gold/80">Kingdom Life</p>
+          <p className="text-xs tracking-[0.35em] uppercase text-gold/80">WordnWorship</p>
         </div>
       </div>
       <div
