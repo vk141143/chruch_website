@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Cross, LogOut, LayoutDashboard, ShieldCheck, UserCircle, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, LogOut, LayoutDashboard, ShieldCheck, UserCircle, Sun, Moon, ChevronDown } from "lucide-react";
 import { getUser, logout, type AuthUser } from "@/lib/auth";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -20,14 +20,14 @@ function useTheme() {
 }
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/bible-academy", label: "Bible Academy" },
-  { to: "/sermons", label: "Sermons" },
+  { to: "/about", label: "About Us" },
+  { to: "/ministries", label: "Parishes & Missions" },
+  { to: "/community", label: "Ministries" },
   { to: "/events", label: "Events" },
-  { to: "/community", label: "Community" },
-  { to: "/donations", label: "Donations" },
-  { to: "/contact", label: "Contact" },
+  { to: "/bible-academy", label: "Courses" },
+  { to: "/sermons", label: "Media" },
+  { to: "/donations", label: "Donate / Support the Diocese" },
+  { to: "/contact", label: "Calendar" },
 ] as const;
 
 export function Header() {
@@ -47,7 +47,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 1280) setOpen(false); };
     window.addEventListener("resize", onResize);
@@ -72,15 +71,9 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-gold shadow-gold group-hover:scale-105 transition-transform duration-300">
-            <Cross className="h-5 w-5 text-navy" strokeWidth={2.5} />
-          </span>
-          <span className={`font-serif text-xl leading-none ${scrolled ? "text-navy dark:text-white" : "text-white"}`}>
-            WordnWorship
-            <span className="block text-[10px] font-sans tracking-[0.3em] text-gold uppercase mt-0.5">
-              Fellowship
-            </span>
-          </span>
+          <div className={`grid h-10 w-10 place-items-center rounded-full border-2 border-dashed text-xs font-semibold transition-transform group-hover:scale-105 duration-300 ${scrolled ? "border-navy text-navy dark:border-white dark:text-white" : "border-white/60 text-white/60"}`}>
+            LOGO
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -91,7 +84,7 @@ export function Header() {
               to={item.to}
               className={navLinkClass(scrolled)}
               activeProps={{ className: "text-gold" }}
-              activeOptions={{ exact: item.to === "/" }}
+              activeOptions={{ exact: false }}
             >
               {item.label}
             </Link>
@@ -100,7 +93,6 @@ export function Header() {
 
         {/* Desktop Actions */}
         <div className="hidden xl:flex items-center gap-2.5">
-          {/* Theme toggle */}
           <button
             onClick={toggle}
             aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
@@ -240,7 +232,7 @@ export function Header() {
                     onClick={() => setOpen(false)}
                     className="block py-3 text-navy dark:text-white font-medium border-b border-border/50 last:border-0 hover:text-gold transition-colors"
                     activeProps={{ className: "text-gold" }}
-                    activeOptions={{ exact: item.to === "/" }}
+                    activeOptions={{ exact: false }}
                   >
                     {item.label}
                   </Link>
