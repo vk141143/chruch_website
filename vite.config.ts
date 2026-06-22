@@ -6,6 +6,19 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Ensure `fetch` exists in Node for preview/build plugins that expect it.
+try {
+  if (typeof globalThis.fetch !== "function") {
+    const undici = await import("undici");
+    globalThis.fetch = undici.fetch;
+    globalThis.Headers = undici.Headers;
+    globalThis.Request = undici.Request;
+    globalThis.Response = undici.Response;
+  }
+} catch (e) {
+  // ignore - undici may not be installed in some environments
+}
+
 export default defineConfig({
   nitro: { preset: "netlify" },
   tanstackStart: {
