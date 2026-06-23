@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import {
-  LayoutDashboard, Users, BookOpen, Tag, Video, Mic2, Sun, Calendar,
+  LayoutDashboard, Users, BookOpen, Tag, Video, Mic2, Sun, Calendar, PlayCircle,
   ClipboardList, HeartHandshake, MessageSquare, Megaphone, DollarSign,
   CreditCard, Receipt, Award, Bell, BarChart3, Settings, UserCircle,
   LogOut, Menu, X, Cross, ChevronRight, ShieldCheck,
@@ -10,7 +10,7 @@ import { logout } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
 export type AdminView =
-  | "dashboard" | "members" | "academy" | "categories" | "videos"
+  | "dashboard" | "members" | "academy" | "categories" | "videos" | "video-library"
   | "sermons" | "devotions" | "events" | "registrations" | "prayer"
   | "community" | "announcements" | "donations" | "plans" | "transactions"
   | "certificates" | "notifications" | "reports" | "settings" | "profile";
@@ -34,6 +34,7 @@ const NAV_GROUPS = [
       { id: "academy" as AdminView, label: "Bible Academy", icon: BookOpen },
       { id: "categories" as AdminView, label: "Course Categories", icon: Tag },
       { id: "videos" as AdminView, label: "Videos & Lessons", icon: Video },
+      { id: "video-library" as AdminView, label: "Video Library", icon: PlayCircle },
       { id: "sermons" as AdminView, label: "Sermons", icon: Mic2 },
       { id: "devotions" as AdminView, label: "Daily Devotions", icon: Sun },
     ],

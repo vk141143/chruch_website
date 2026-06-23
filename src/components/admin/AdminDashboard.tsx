@@ -7,15 +7,15 @@ interface Props { onViewChange: (v: AdminView) => void; }
 
 export function AdminDashboard({ onViewChange }: Props) {
   const METRICS = [
-    { icon: Users, label: "Total Members", value: "2,847", delta: "+12.4%", color: "text-blue-500" },
-    { icon: Crown, label: "Active Subscribers", value: "642", delta: "+8.1%", color: "text-gold" },
-    { icon: DollarSign, label: "Monthly Revenue", value: "$10,200", delta: "+15.6%", color: "text-emerald-500" },
-    { icon: DollarSign, label: "Total Donations", value: "$412,840", delta: "+24.6%", color: "text-purple-500" },
-    { icon: BookOpen, label: "Course Enrollments", value: "1,206", delta: "+15.2%", color: "text-orange-500" },
-    { icon: PlayCircle, label: "Video Watch Time", value: "4,820h", delta: "+9.8%", color: "text-pink-500" },
-    { icon: Calendar, label: "Upcoming Events", value: "5", delta: "+2", color: "text-cyan-500" },
-    { icon: HeartHandshake, label: "Pending Prayers", value: "4", delta: "", color: "text-red-400" },
-    { icon: MessageSquare, label: "Pending Posts", value: "2", delta: "", color: "text-amber-500" },
+    { icon: Users, label: "Total Members", value: "2,847", delta: "+12.4%", color: "text-blue-500", view: "members" as AdminView },
+    { icon: Crown, label: "Active Subscribers", value: "642", delta: "+8.1%", color: "text-gold", view: "plans" as AdminView },
+    { icon: DollarSign, label: "Monthly Revenue", value: "$10,200", delta: "+15.6%", color: "text-emerald-500", view: "transactions" as AdminView },
+    { icon: DollarSign, label: "Total Donations", value: "$412,840", delta: "+24.6%", color: "text-purple-500", view: "donations" as AdminView },
+    { icon: BookOpen, label: "Course Enrollments", value: "1,206", delta: "+15.2%", color: "text-orange-500", view: "academy" as AdminView },
+    { icon: PlayCircle, label: "Video Watch Time", value: "4,820h", delta: "+9.8%", color: "text-pink-500", view: "video-library" as AdminView },
+    { icon: Calendar, label: "Upcoming Events", value: "5", delta: "+2", color: "text-cyan-500", view: "events" as AdminView },
+    { icon: HeartHandshake, label: "Pending Prayers", value: "4", delta: "", color: "text-red-400", view: "prayer" as AdminView },
+    { icon: MessageSquare, label: "Pending Posts", value: "2", delta: "", color: "text-amber-500", view: "community" as AdminView },
   ];
 
   return (
@@ -36,8 +36,37 @@ export function AdminDashboard({ onViewChange }: Props) {
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
         {METRICS.map((m) => (
-          <StatCard key={m.label} icon={m.icon} label={m.label} value={m.value} delta={m.delta || undefined} color={m.color} />
+          <div key={m.label} onClick={() => m.view && onViewChange(m.view)} className={m.view ? "cursor-pointer" : undefined}>
+            <StatCard icon={m.icon} label={m.label} value={m.value} delta={m.delta || undefined} color={m.color} />
+          </div>
         ))}
+      </div>
+
+      {/* Video Library Quick Access */}
+      <div className="rounded-2xl bg-background border border-border overflow-hidden">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+          <div className="flex items-center gap-2">
+            <PlayCircle className="h-4 w-4 text-gold" />
+            <h3 className="font-serif text-lg text-navy">Video Library</h3>
+          </div>
+          <button onClick={() => onViewChange("video-library")} className="text-xs text-gold hover:underline">Manage videos</button>
+        </div>
+        <div className="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
+          {[
+            { label: "Total Videos", value: "12", sub: "in library", icon: PlayCircle, color: "text-blue-500" },
+            { label: "Premium Videos", value: "7", sub: "subscribers only", icon: GraduationCap, color: "text-gold" },
+            { label: "Free Videos", value: "5", sub: "open access", icon: BookOpen, color: "text-emerald-500" },
+          ].map(({ label, value, sub, icon: Icon, color }) => (
+            <div key={label} className="flex items-center gap-4 p-5">
+              <Icon className={`h-8 w-8 ${color} shrink-0`} />
+              <div>
+                <p className="font-serif text-2xl text-navy">{value}</p>
+                <p className="text-sm font-medium text-navy">{label}</p>
+                <p className="text-xs text-muted-foreground">{sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Charts */}

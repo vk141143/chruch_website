@@ -3,13 +3,13 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import {
   LayoutDashboard, BookOpen, GraduationCap, Mic2, Sun, Calendar, HeartHandshake,
   Users, Bookmark, Award, Bell, UserCircle, Settings, CreditCard, LogOut,
-  Menu, X, Cross, ChevronRight,
+  Menu, X, Cross, ChevronRight, Video,
 } from "lucide-react";
 import { logout, type AuthUser } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
 export type DashView =
-  | "home" | "my-learning" | "video-learning" | "bible-academy"
+  | "home" | "my-learning" | "video-learning" | "video-library" | "bible-academy"
   | "sermons" | "devotion" | "events" | "prayer" | "community"
   | "saved" | "certificates" | "notifications" | "profile"
   | "settings" | "subscription";
@@ -17,6 +17,7 @@ export type DashView =
 const NAV_ITEMS: { id: DashView; label: string; icon: React.ElementType }[] = [
   { id: "home", label: "Dashboard", icon: LayoutDashboard },
   { id: "my-learning", label: "My Learning", icon: BookOpen },
+  { id: "video-library", label: "Video Library", icon: Video },
   { id: "bible-academy", label: "Bible Academy", icon: GraduationCap },
   { id: "sermons", label: "Sermons", icon: Mic2 },
   { id: "devotion", label: "Daily Devotion", icon: Sun },

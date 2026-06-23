@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Trash2, Edit2, BookOpen, Tag, Video } from "lucide-react";
+import { Plus, Trash2, Edit2, BookOpen, Tag, Video as VideoIcon } from "lucide-react";
 import {
   ADMIN_COURSES, type AdminCourse,
 } from "./adminData";
@@ -248,7 +248,7 @@ export function VideosView() {
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState<{ open: boolean; lesson?: typeof LESSONS[0] }>({ open: false });
   const [confirm, setConfirm] = useState<{ open: boolean; id: string }>({ open: false, id: "" });
-  const [form, setForm] = useState({ title: "", course: "", duration: "", order: 1, type: "Video", status: "Draft", free: false });
+  const [form, setForm] = useState({ title: "", course: "", youtubeId: "", duration: "", order: 1, type: "Video", status: "Draft", free: false });
 
   const filtered = lessons.filter((l) =>
     l.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -261,7 +261,7 @@ export function VideosView() {
       render: (l: typeof LESSONS[0]) => (
         <div className="flex items-center gap-3">
           <div className="grid h-8 w-8 place-items-center rounded-lg bg-navy">
-            <Video className="h-4 w-4 text-gold" />
+            <VideoIcon className="h-4 w-4 text-gold" />
           </div>
           <div>
             <p className="font-medium text-navy text-sm">{l.title}</p>
@@ -321,8 +321,12 @@ export function VideosView() {
               <option>Free</option><option>Premium</option>
             </select>
           </FormField>
+          <FormField label="YouTube Video ID" required>
+            <input value={form.youtubeId ?? ""} onChange={(e) => setForm((f) => ({ ...f, youtubeId: e.target.value }))} className={inputCls} placeholder="e.g. dQw4w9WgXcQ" />
+            <p className="text-xs text-muted-foreground mt-1">Paste the YouTube video ID from the URL. The video must be set to Unlisted or Public on YouTube.</p>
+          </FormField>
           <div className="sm:col-span-2">
-            <FormField label="Video Upload / URL">
+            <FormField label="Video Upload / URL (optional)">
               <input className={inputCls} placeholder="Paste video URL or upload..." />
             </FormField>
           </div>
@@ -347,6 +351,174 @@ export function VideosView() {
       </Modal>
       <ConfirmDialog open={confirm.open} onClose={() => setConfirm((p) => ({ ...p, open: false }))} onConfirm={() => { setLessons((p) => p.filter((l) => l.id !== confirm.id)); toast("Lesson deleted.", "error"); }}
         title="Delete Lesson" message="This lesson will be permanently removed." danger />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Video Library (admin view of videoData)
+// ─────────────────────────────────────────────────────────────────────────────
+import { useState as useStateVL } from "react";
+import { MOCK_VIDEOS, VIDEO_CATEGORIES, type Video as VideoData } from "@/lib/videoData";
+
+export function VideoLibraryView() {
+  const [videos, setVideos] = useStateVL<VideoData[]>(MOCK_VIDEOS);
+  const [search, setSearch] = useStateVL("");
+  const [catFilter, setCatFilter] = useStateVL("all");
+  const [modal, setModal] = useStateVL<{ open: boolean; mode: "add" | "edit"; video?: VideoData }>({ open: false, mode: "add" });
+  const [confirm, setConfirm] = useStateVL<{ open: boolean; id: string }>({ open: false, id: "" });
+
+  const BLANK: Omit<VideoData, "id"> = {
+    title: "", description: "", thumbnail: "", youtubeId: "", premium: false,
+    category: "new-testament", duration: "", instructor: "", order: 1,
+    views: 0, publishedAt: new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+  };
+
+  const [form, setForm] = useStateVL<Omit<VideoData, "id">>(BLANK);
+
+  const filtered = videos.filter((v) => {
+    const ms = v.title.toLowerCase().includes(search.toLowerCase()) || v.instructor.toLowerCase().includes(search.toLowerCase());
+    const mc = catFilter === "all" || v.category === catFilter;
+    return ms && mc;
+  });
+
+  function openAdd() { setForm(BLANK); setModal({ open: true, mode: "add" }); }
+  function openEdit(v: VideoData) { const { id: _id, ...rest } = v; setForm(rest); setModal({ open: true, mode: "edit", video: v }); }
+
+  function save() {
+    if (!form.title.trim() || !form.youtubeId.trim()) { toast("Title and YouTube ID required.", "error"); return; }
+    if (modal.mode === "add") {
+      setVideos((p) => [...p, { ...form, id: `v${Date.now()}` }]);
+      toast("Video added to library.");
+    } else if (modal.video) {
+      setVideos((p) => p.map((v) => v.id === modal.video!.id ? { ...modal.video!, ...form } : v));
+      toast("Video updated.");
+    }
+    setModal({ open: false, mode: "add" });
+  }
+
+  const cols = [
+    {
+      key: "title", label: "Video",
+      render: (v: VideoData) => (
+        <div className="flex items-center gap-3">
+          <img src={v.thumbnail} alt={v.title} className="h-10 w-16 rounded-lg object-cover bg-muted shrink-0" />
+          <div className="min-w-0">
+            <p className="font-medium text-navy text-sm truncate max-w-[200px]">{v.title}</p>
+            <p className="text-xs text-muted-foreground truncate">{v.instructor}</p>
+          </div>
+        </div>
+      ),
+    },
+    { key: "category", label: "Category", render: (v: VideoData) => <span className="text-xs text-muted-foreground capitalize">{v.category.replace("-", " ")}</span> },
+    { key: "duration", label: "Duration", render: (v: VideoData) => <span className="text-xs text-muted-foreground">{v.duration}</span> },
+    { key: "views", label: "Views", render: (v: VideoData) => <span className="font-medium text-navy text-sm">{(v.views ?? 0).toLocaleString()}</span> },
+    { key: "youtubeId", label: "YouTube ID", render: (v: VideoData) => (
+      <a href={`https://youtu.be/${v.youtubeId}`} target="_blank" rel="noopener noreferrer"
+        className="text-xs text-gold hover:underline font-mono">{v.youtubeId}</a>
+    ) },
+    { key: "premium", label: "Access", render: (v: VideoData) => <Badge label={v.premium ? "Premium" : "Free"} /> },
+  ];
+
+  return (
+    <div className="p-4 md:p-6 max-w-[1400px] mx-auto">
+      <PageHeader
+        title="Video Library"
+        desc={`${videos.length} videos · ${videos.filter((v) => v.premium).length} premium`}
+        action={
+          <button onClick={openAdd} className="flex items-center gap-1.5 rounded-full bg-gradient-gold px-4 py-2 text-xs font-semibold text-navy shadow-gold hover:scale-[1.02] transition-transform">
+            <Plus className="h-3.5 w-3.5" /> Add Video
+          </button>
+        }
+      />
+
+      {/* Filters */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-5">
+        <div className="flex-1"><SearchBar value={search} onChange={setSearch} placeholder="Search videos or instructors..." /></div>
+        <div className="flex gap-1 rounded-xl bg-cream p-1 overflow-x-auto">
+          {VIDEO_CATEGORIES.map((c) => (
+            <button key={c.id} onClick={() => setCatFilter(c.id)}
+              className={`rounded-lg px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-all ${catFilter === c.id ? "bg-background text-navy shadow-sm" : "text-muted-foreground hover:text-navy"}`}>
+              {c.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <DataTable
+        cols={cols}
+        rows={filtered}
+        actions={(v) => (
+          <div className="flex justify-end gap-1.5">
+            <ActionBtn label="Edit" onClick={() => openEdit(v)} variant="ghost" />
+            <ActionBtn
+              label={v.premium ? "Set Free" : "Set Premium"}
+              onClick={() => { setVideos((p) => p.map((x) => x.id === v.id ? { ...x, premium: !x.premium } : x)); toast("Access updated."); }}
+              variant="default"
+            />
+            <button onClick={() => setConfirm({ open: true, id: v.id })} className="grid h-7 w-7 place-items-center rounded-lg border border-border text-muted-foreground hover:text-red-600 hover:border-red-200 transition-colors">
+              <Trash2 className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        )}
+      />
+
+      {/* Add / Edit Modal */}
+      <Modal open={modal.open} onClose={() => setModal({ open: false, mode: "add" })} title={modal.mode === "add" ? "Add Video" : "Edit Video"} size="lg">
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="sm:col-span-2">
+            <FormField label="Video Title" required>
+              <input value={form.title} onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))} className={inputCls} placeholder="Video title" />
+            </FormField>
+          </div>
+          <FormField label="YouTube Video ID" required>
+            <input value={form.youtubeId} onChange={(e) => setForm((f) => ({ ...f, youtubeId: e.target.value }))} className={inputCls} placeholder="e.g. dQw4w9WgXcQ" />
+            <p className="text-xs text-muted-foreground mt-1">Upload as Unlisted on YouTube, then paste the video ID.</p>
+          </FormField>
+          <FormField label="Thumbnail URL">
+            <input value={form.thumbnail} onChange={(e) => setForm((f) => ({ ...f, thumbnail: e.target.value }))} className={inputCls} placeholder="https://..." />
+          </FormField>
+          <FormField label="Instructor">
+            <input value={form.instructor} onChange={(e) => setForm((f) => ({ ...f, instructor: e.target.value }))} className={inputCls} placeholder="Pastor name" />
+          </FormField>
+          <FormField label="Duration">
+            <input value={form.duration} onChange={(e) => setForm((f) => ({ ...f, duration: e.target.value }))} className={inputCls} placeholder="e.g. 12:30" />
+          </FormField>
+          <FormField label="Category">
+            <select value={form.category} onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))} className={selectCls}>
+              {VIDEO_CATEGORIES.filter((c) => c.id !== "all").map((c) => (
+                <option key={c.id} value={c.id}>{c.label}</option>
+              ))}
+            </select>
+          </FormField>
+          <FormField label="Access Level">
+            <select value={form.premium ? "Premium" : "Free"} onChange={(e) => setForm((f) => ({ ...f, premium: e.target.value === "Premium" }))} className={selectCls}>
+              <option>Free</option>
+              <option>Premium</option>
+            </select>
+          </FormField>
+          <div className="sm:col-span-2">
+            <FormField label="Description">
+              <textarea value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} className={textareaCls} rows={3} placeholder="Brief description of the video content..." />
+            </FormField>
+          </div>
+        </div>
+        <div className="flex justify-end gap-2 mt-6">
+          <button onClick={() => setModal({ open: false, mode: "add" })} className="rounded-full border border-border px-5 py-2 text-sm font-medium text-navy hover:bg-cream">Cancel</button>
+          <button onClick={save} className="rounded-full bg-gradient-gold px-5 py-2 text-sm font-semibold text-navy shadow-gold">
+            {modal.mode === "add" ? "Add Video" : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
+
+      <ConfirmDialog
+        open={confirm.open}
+        onClose={() => setConfirm((p) => ({ ...p, open: false }))}
+        onConfirm={() => { setVideos((p) => p.filter((v) => v.id !== confirm.id)); toast("Video deleted.", "error"); }}
+        title="Delete Video"
+        message="This video will be permanently removed from the library."
+        danger
+      />
     </div>
   );
 }

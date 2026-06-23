@@ -1,12 +1,14 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { getUser, type AuthUser } from "@/lib/auth";
+import { supabase, getSubscriptionStatus } from "@/lib/supabase";
 import { MOCK_NOTIFICATIONS, type Course } from "@/lib/mockData";
 
 import { DashboardLayout, type DashView } from "@/components/dashboard/DashboardLayout";
 import { DashboardHome } from "@/components/dashboard/DashboardHome";
 import { MyLearning } from "@/components/dashboard/MyLearning";
 import { VideoLearning } from "@/components/dashboard/VideoLearning";
+import { VideoGrid } from "@/components/dashboard/VideoGrid";
 import { BibleAcademyPage } from "@/components/dashboard/BibleAcademyPage";
 import { SermonsPage } from "@/components/dashboard/SermonsPage";
 import { DevotionPage } from "@/components/dashboard/DevotionPage";
@@ -35,7 +37,7 @@ function DashboardPage() {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [view, setView] = useState<DashView>("home");
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
-  const [isPremium] = useState(false); // Toggle to true to test premium state
+  const [isPremium, setIsPremium] = useState(false);
 
   const unreadCount = MOCK_NOTIFICATIONS.filter((n) => !n.read).length;
 
@@ -50,6 +52,39 @@ function DashboardPage() {
       return;
     }
     setUser(u);
+
+    // Handle Stripe success redirect — re-fetch subscription after payment
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("subscription") === "success") {
+      window.history.replaceState({}, "", "/dashboard");
+    }
+
+    // Load real subscription status from Supabase
+    async function loadSubscription() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          const subscribed = await getSubscriptionStatus(session.user.id);
+          setIsPremium(subscribed);
+        }
+      } catch {
+        // Supabase not configured — subscription stays false
+      }
+    }
+    loadSubscription();
+
+    // Listen for auth changes (e.g. after Stripe redirect back)
+    try {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, sess) => {
+        if (sess?.user) {
+          const subscribed = await getSubscriptionStatus(sess.user.id);
+          setIsPremium(subscribed);
+        }
+      });
+      return () => subscription.unsubscribe();
+    } catch {
+      // Supabase not configured — no-op
+    }
   }, []);
 
   if (!user) {
@@ -92,6 +127,8 @@ function DashboardPage() {
             onViewChange={handleViewChange}
           />
         );
+      case "video-library":
+        return <VideoGrid isPremium={isPremium} onViewChange={handleViewChange} />;
       case "video-learning":
         return selectedCourse ? (
           <VideoLearning
@@ -100,9 +137,9 @@ function DashboardPage() {
             onViewChange={handleViewChange}
           />
         ) : (
-          <MyLearning
+          <VideoLearning
+            course={null}
             isPremium={isPremium}
-            onCourseSelect={handleCourseSelect}
             onViewChange={handleViewChange}
           />
         );

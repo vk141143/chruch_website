@@ -1,4 +1,5 @@
-import { Crown, CheckCircle, Zap } from "lucide-react";
+import { useState } from "react";
+import { Crown, CheckCircle, Zap, Clock } from "lucide-react";
 import type { DashView } from "./DashboardLayout";
 
 const PLANS = [
@@ -70,6 +71,7 @@ interface Props {
 }
 
 export function SubscriptionPage({ isPremium, onViewChange: _onViewChange }: Props) {
+  const [selected, setSelected] = useState<string | null>(null);
   return (
     <div className="p-4 md:p-6 max-w-5xl mx-auto">
       <div className="text-center mb-8">
@@ -167,6 +169,7 @@ export function SubscriptionPage({ isPremium, onViewChange: _onViewChange }: Pro
                 ))}
               </ul>
               <button
+                onClick={() => !isPremium && plan.id !== "free" && setSelected(plan.id)}
                 className={`mt-5 w-full rounded-full py-3 text-sm font-semibold transition-all ${
                   plan.id === "free"
                     ? "border border-border text-muted-foreground cursor-default"
@@ -182,6 +185,13 @@ export function SubscriptionPage({ isPremium, onViewChange: _onViewChange }: Pro
                   ? "Active"
                   : `Get ${plan.name}`}
               </button>
+              {selected === plan.id && (
+                <div className="mt-3 rounded-xl bg-cream border border-gold/30 p-3 text-center">
+                  <Clock className="h-4 w-4 mx-auto mb-1 text-gold" />
+                  <p className="text-xs font-semibold text-navy">Payment coming soon!</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">We'll notify you when payments are live.</p>
+                </div>
+              )}
             </div>
           </div>
         ))}

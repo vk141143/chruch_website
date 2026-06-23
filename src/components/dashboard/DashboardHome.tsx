@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   BookOpen, Calendar, PlayCircle, Bell, Share2, Bookmark, ArrowRight,
-  MapPin, Clock, Users, TrendingUp, CheckCircle, Crown,
+  MapPin, Clock, Users, TrendingUp, CheckCircle, Crown, Video,
 } from "lucide-react";
 import {
   MOCK_COURSES, MOCK_SERMONS, MOCK_EVENTS, MOCK_NOTIFICATIONS,
@@ -53,12 +53,12 @@ export function DashboardHome({ user, isPremium, onViewChange, onCourseSelect }:
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
-          { icon: TrendingUp, label: "Learning Progress", value: "68%", sub: "Gospel of John", color: "text-blue-500" },
-          { icon: PlayCircle, label: "Videos Watched", value: "47", sub: "This month", color: "text-purple-500" },
-          { icon: Calendar, label: "Upcoming Events", value: "3", sub: "Next: Jun 27", color: "text-gold" },
-          { icon: Users, label: "Prayer Requests", value: "2 Active", sub: "24 praying", color: "text-green-500" },
-        ].map(({ icon: Icon, label, value, sub, color }) => (
-          <div key={label} className="rounded-2xl bg-background border border-border p-4">
+          { icon: TrendingUp, label: "Learning Progress", value: "68%", sub: "Gospel of John", color: "text-blue-500", view: "my-learning" },
+          { icon: PlayCircle, label: "Video Library", value: "12", sub: "videos available", color: "text-purple-500", view: "video-library" },
+          { icon: Calendar, label: "Upcoming Events", value: "3", sub: "Next: Jun 27", color: "text-gold", view: "events" },
+          { icon: Users, label: "Prayer Requests", value: "2 Active", sub: "24 praying", color: "text-green-500", view: "prayer" },
+        ].map(({ icon: Icon, label, value, sub, color, view }) => (
+          <div key={label} className="rounded-2xl bg-background border border-border p-4 cursor-pointer hover:border-gold transition-colors" onClick={() => onViewChange(view as DashView)}>
             <Icon className={`h-5 w-5 ${color} mb-3`} />
             <p className="font-serif text-xl text-navy">{value}</p>
             <p className="text-xs font-medium text-navy mt-0.5">{label}</p>

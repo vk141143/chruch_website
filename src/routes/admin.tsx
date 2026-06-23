@@ -6,7 +6,7 @@ import { AdminLayout, type AdminView } from "@/components/admin/AdminLayout";
 import { ToastContainer } from "@/components/admin/AdminUI";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 import { MembersView } from "@/components/admin/MembersView";
-import { AcademyView, CategoriesView, VideosView } from "@/components/admin/ContentViews";
+import { AcademyView, CategoriesView, VideosView, VideoLibraryView } from "@/components/admin/ContentViews";
 import { SermonsView, DevotionsView } from "@/components/admin/SermonDevotionViews";
 import { EventsAdminView, RegistrationsView } from "@/components/admin/EventsViews";
 import { PrayerAdminView, CommunityAdminView, AnnouncementsView } from "@/components/admin/ChurchViews";
@@ -56,6 +56,7 @@ function AdminPage() {
       case "academy":        return <AcademyView />;
       case "categories":     return <CategoriesView />;
       case "videos":         return <VideosView />;
+      case "video-library":  return <VideoLibraryView />;
       case "sermons":        return <SermonsView />;
       case "devotions":      return <DevotionsView />;
       case "events":         return <EventsAdminView />;
