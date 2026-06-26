@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Cross, Facebook, Instagram, Youtube, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { Cross, Facebook, Instagram, Youtube, Mail, MapPin, Twitter } from "lucide-react";
 
 const SOCIAL = [
   { Icon: Facebook, href: "#", label: "Facebook" },
@@ -9,10 +9,10 @@ const SOCIAL = [
 ];
 
 const EXPLORE = [
-  ["/about", "About Us"],
-  ["/ministries", "Ministries"],
-  ["/bible-academy", "Bible Academy"],
-  ["/sermons", "Sermons"],
+  ["/about", "About ECSGS"],
+  ["/ministries", "Parishes & Missions"],
+  ["/bible-academy", "St. Cyprian School"],
+  ["/sermons", "Media & Sermons"],
   ["/events", "Events"],
 ] as const;
 
@@ -35,12 +35,12 @@ export function Footer() {
               <Cross className="h-5 w-5 text-navy" strokeWidth={2.5} />
             </span>
             <span className="font-serif text-xl">
-              WordnWorship
-              <span className="block text-[10px] font-sans tracking-[0.3em] text-gold uppercase mt-0.5">Fellowship</span>
+              ECSGS
+              <span className="block text-[10px] font-sans tracking-[0.3em] text-gold uppercase mt-0.5">Ecumenical Catholic Servants</span>
             </span>
           </Link>
           <p className="mt-5 text-sm leading-relaxed text-white/65 max-w-[240px]">
-            A Christ-centered community pursuing the presence of God, the truth of His Word, and a life that loves people well.
+            Ecumenical Catholic Servants of the Good Shepherd — an inclusive catholic community under the Episcopal Oversight of Most Reverend Arturo Querijero Ferreras.
           </p>
           <div className="mt-6 flex gap-2.5">
             {SOCIAL.map(({ Icon, href, label }) => (
@@ -90,21 +90,17 @@ export function Footer() {
           <ul className="mt-5 space-y-3.5">
             <li className="flex gap-3 text-sm text-white/70">
               <MapPin className="h-4 w-4 mt-0.5 text-gold shrink-0" />
-              142 Riverside Avenue, Greenfield
-            </li>
-            <li className="flex gap-3 text-sm text-white/70">
-              <Phone className="h-4 w-4 mt-0.5 text-gold shrink-0" />
-              (555) 218-0420
+              <span>500 E Imperial Hwy., Brea, CA 92821 USA</span>
             </li>
             <li className="flex gap-3 text-sm text-white/70">
               <Mail className="h-4 w-4 mt-0.5 text-gold shrink-0" />
-              hello@kingdomlife.org
+              <a href="mailto:mariahadmin@ecsgs-stcyprian.com" className="hover:text-gold transition-colors break-all">mariahadmin@ecsgs-stcyprian.com</a>
             </li>
           </ul>
           <div className="mt-5 rounded-xl border border-white/10 bg-white/5 p-4">
-            <p className="text-xs font-semibold text-gold tracking-widest uppercase">Service Times</p>
-            <p className="mt-1.5 text-sm text-white/70">Sunday · 9:00 AM & 11:00 AM</p>
-            <p className="mt-0.5 text-sm text-white/70">Wednesday · 7:00 PM</p>
+            <p className="text-xs font-semibold text-gold tracking-widest uppercase">Class Format</p>
+            <p className="mt-1.5 text-sm text-white/70">Hybrid — In-Person & Zoom</p>
+            <p className="mt-0.5 text-sm text-white/70">Shared dinner precedes each session</p>
           </div>
         </div>
       </div>
@@ -112,9 +108,9 @@ export function Footer() {
       {/* Divider */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/50">
-          <p>© {new Date().getFullYear()} WordnWorship Fellowship. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ecumenical Catholic Servants of the Good Shepherd. All rights reserved.</p>
           <p className="font-serif italic text-gold/80 text-center">
-            &ldquo;For where two or three gather in my name, there am I with them.&rdquo; — Matthew 18:20
+            &ldquo;I am the good shepherd. The good shepherd lays down his life for the sheep.&rdquo; — John 10:11
           </p>
         </div>
       </div>

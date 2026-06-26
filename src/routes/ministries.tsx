@@ -5,24 +5,24 @@ import { Baby, Users, HeartHandshake, Music, Globe2, BookOpen, HandHeart, Sparkl
 export const Route = createFileRoute("/ministries")({
   head: () => ({
     meta: [
-      { title: "Ministries — WordnWorship Fellowship" },
-      { name: "description", content: "Discover ministries at WordnWorship Fellowship — kids, youth, worship, outreach, prayer and more." },
-      { property: "og:title", content: "Ministries at WordnWorship" },
-      { property: "og:description", content: "Find your place — kids, youth, worship, prayer, outreach and missions." },
+      { title: "Parishes & Missions — ECSGS" },
+      { name: "description", content: "Discover the parishes, missions, and ministries of the Ecumenical Catholic Servants of the Good Shepherd." },
+      { property: "og:title", content: "Parishes & Missions — ECSGS" },
+      { property: "og:description", content: "Parishes, missions, and ministries of ECSGS." },
     ],
   }),
   component: MinistriesPage,
 });
 
 const MINISTRIES = [
-  { icon: Baby, name: "Kingdom Kids", text: "A safe, fun and Bible-rich environment for children from birth through 5th grade every Sunday." },
-  { icon: Users, name: "Youth Fellowship", text: "Grades 6–12 gather weekly for worship, teaching, mentoring and friendship." },
-  { icon: Music, name: "Worship Ministry", text: "Singers, musicians, and tech volunteers leading our church into the presence of God." },
-  { icon: HeartHandshake, name: "Small Groups", text: "Mid-week communities for prayer, Bible study, and life together." },
-  { icon: BookOpen, name: "Bible Academy", text: "In-depth teaching for those who want to grow deep in the Word." },
-  { icon: HandHeart, name: "Prayer Ministry", text: "Intercessors, healing prayer teams, and our weekly prayer gathering." },
-  { icon: Globe2, name: "Missions & Outreach", text: "Local outreach to our city and global partnerships sharing the gospel." },
-  { icon: Sparkles, name: "Marriage & Family", text: "Workshops, mentoring, and resources for thriving Christ-centered homes." },
+  { icon: Baby, name: "House of Ruth and Junia", text: "Our specialized ministry community bridging Belgian and American catholic traditions, established in 2022 from the merger of St. Junia’s House (Anaheim, 2006) and House of Ruth (Belgium, 2012)." },
+  { icon: Users, name: "Diaconal Formation", text: "Formation pathway for candidates for ordination as permanent deacons in ECSGS or affiliated sister communities, through the St. Cyprian School of Theology." },
+  { icon: Music, name: "Liturgical Worship", text: "Ecumenical, inclusive, and sacramental worship — all are welcome at the table regardless of gender, background, or walk of life." },
+  { icon: HeartHandshake, name: "Small Communities", text: "Intimate faith communities and fellowship groups nurturing prayer, study, and life together in the spirit of the Good Shepherd." },
+  { icon: BookOpen, name: "St. Cyprian School of Theology", text: "Theological education open to diaconal candidates and lay auditors. Five courses launched to date, offered hybrid in-person and by Zoom." },
+  { icon: HandHeart, name: "Prayer & Intercessory Ministry", text: "A community committed to prayer, healing ministry, and intercession — rooted in the tradition of independent catholic spirituality." },
+  { icon: Globe2, name: "Ecumenical Partnerships", text: "Relationships with sister communities and ecumenical partners nationally and internationally, sharing mission and catholic life across traditions." },
+  { icon: Sparkles, name: "Inclusive Catholic Life", text: "Welcoming all — inspired by Junia, the female apostle (Romans 16:7), and Ruth, the immigrant foremother of Jesus, as models of radical belonging." },
 ];
 
 function MinistriesPage() {
@@ -30,7 +30,7 @@ function MinistriesPage() {
     <>
       <section className="pt-40 pb-20 bg-navy text-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <SectionHeading eyebrow="Find Your Place" title="Ministries for every season of life" subtitle="From the youngest child to the oldest saint — there is a place where your gifts can serve and your soul can grow." center light />
+          <SectionHeading eyebrow="Our Communities" title="Parishes, missions & ministries" subtitle="From the House of Ruth and Junia to our diaconal formation program — every ministry of ECSGS is rooted in service to the Good Shepherd." center light />
         </div>
       </section>
       <section className="py-24">

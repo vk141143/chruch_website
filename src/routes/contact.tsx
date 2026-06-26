@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — WordnWorship Fellowship" },
-      { name: "description", content: "Get in touch with WordnWorship Fellowship. Visit us Sunday, send a prayer request, or contact our team." },
-      { property: "og:title", content: "Contact WordnWorship" },
-      { property: "og:description", content: "Visit, call, or send us a message." },
+      { title: "Contact — Saint Cyprian School of Theology / ECSGS" },
+      { name: "description", content: "Get in touch with the Ecumenical Catholic Servants of the Good Shepherd or the Saint Cyprian School of Theology. Inquire about enrollment, ministry, or community." },
+      { property: "og:title", content: "Contact ECSGS" },
+      { property: "og:description", content: "Reach out to House of Ruth and Junia or the Saint Cyprian School of Theology." },
     ],
   }),
   component: ContactPage,
@@ -29,10 +29,9 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-6">
             {[
-              { icon: MapPin, label: "Visit", value: "142 Riverside Avenue\nGreenfield, 04101" },
-              { icon: Phone, label: "Call", value: "(555) 218-0420" },
-              { icon: Mail, label: "Email", value: "hello@kingdomlife.org" },
-              { icon: Clock, label: "Sunday Worship", value: "9:00 AM & 11:00 AM" },
+              { icon: MapPin, label: "Mailing Address", value: "Servants of the Good Shepherd\nSaint Cyprian School of Theology\n500 E Imperial Hwy.\nBrea, CA 92821 USA" },
+              { icon: Mail, label: "Email", value: "mariahadmin@ecsgs-stcyprian.com" },
+              { icon: Clock, label: "Classes", value: "Hybrid — In-Person & Zoom\nShared dinner precedes each session" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex gap-4">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-gold shadow-gold">
@@ -54,8 +53,8 @@ function ContactPage() {
             <div className="mt-6 grid gap-4">
               <input required placeholder="Your name" className="rounded-lg border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:border-gold" />
               <input required type="email" placeholder="Email address" className="rounded-lg border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:border-gold" />
-              <input placeholder="Subject" className="rounded-lg border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:border-gold" />
-              <textarea required rows={5} placeholder="How can we pray for you or serve you?" className="rounded-lg border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:border-gold resize-none" />
+              <input placeholder="Subject (e.g. Enrollment Inquiry, Diaconal Program)" className="rounded-lg border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:border-gold" />
+              <textarea required rows={5} placeholder="How can we help you? Inquire about enrollment, auditing a course, or joining our community." className="rounded-lg border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:border-gold resize-none" />
               <button className="mt-2 rounded-full bg-gradient-gold px-6 py-3.5 text-sm font-semibold text-navy shadow-gold hover:scale-[1.02] transition-transform">
                 {sent ? "Thank you — we'll be in touch" : "Send Message"}
               </button>

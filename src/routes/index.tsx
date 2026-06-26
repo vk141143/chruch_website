@@ -11,10 +11,10 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WordnWorship Fellowship — A Christ-Centered Church Community" },
-      { name: "description", content: "Join WordnWorship Fellowship — Sunday worship, Bible teaching, prayer, and community rooted in Jesus Christ." },
-      { property: "og:title", content: "WordnWorship Fellowship" },
-      { property: "og:description", content: "Worship, the Word, and a life-giving community in Christ." },
+      { title: "Ecumenical Catholic Servants of the Good Shepherd — ECSGS" },
+      { name: "description", content: "Ecumenical Catholic Servants of the Good Shepherd — an inclusive catholic community under the Episcopal Oversight of Most Reverend Arturo Querijero Ferreras." },
+      { property: "og:title", content: "ECSGS — Ecumenical Catholic Servants of the Good Shepherd" },
+      { property: "og:description", content: "An inclusive, ecumenical catholic community rooted in service, Scripture, and sacrament." },
       { property: "og:image", content: heroCross },
     ],
   }),
@@ -25,34 +25,34 @@ const SLIDES = [
   {
     image: heroCross,
     eyebrow: "Welcome Home",
-    title: "Jesus Christ Is Lord",
-    verse: "I am the way, the truth, and the life.",
-    ref: "John 14:6",
+    title: "Servants of the Good Shepherd",
+    verse: "I am the good shepherd. The good shepherd lays down his life for the sheep.",
+    ref: "John 10:11",
     cta: { label: "Join Our Community", to: "/community" },
   },
   {
     image: heroBible,
-    eyebrow: "Rooted In The Word",
-    title: "Grow In Faith",
+    eyebrow: "St. Cyprian School of Theology",
+    title: "Formation for Ministry",
     verse: "Your word is a lamp to my feet and a light to my path.",
     ref: "Psalm 119:105",
-    cta: { label: "Explore Bible Studies", to: "/bible-academy" },
+    cta: { label: "Explore Theology Courses", to: "/bible-academy" },
   },
   {
     image: heroPurpose,
-    eyebrow: "Called With Purpose",
-    title: "Discover God's Purpose",
-    verse: "For I know the plans I have for you.",
-    ref: "Jeremiah 29:11",
-    cta: { label: "Start Your Journey", to: "/about" },
+    eyebrow: "Inclusive & Ecumenical",
+    title: "A Church for All People",
+    verse: "There is neither Jew nor Greek, slave nor free, male nor female — all are one in Christ.",
+    ref: "Galatians 3:28",
+    cta: { label: "Our Story", to: "/about" },
   },
   {
     image: heroChurch,
-    eyebrow: "Teaching & Discipleship",
-    title: "Learn The Word Of God",
-    verse: "All Scripture is God-breathed.",
+    eyebrow: "House of Ruth and Junia",
+    title: "Rooted in Scripture & Service",
+    verse: "All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training in righteousness.",
     ref: "2 Timothy 3:16",
-    cta: { label: "View Courses", to: "/bible-academy" },
+    cta: { label: "Diaconal Program", to: "/bible-academy" },
   },
 ] as const;
 
@@ -156,10 +156,10 @@ function Hero() {
 }
 
 const PILLARS = [
-  { icon: BookOpen, title: "Sound Teaching", text: "Verse-by-verse study of the Scriptures, rooted in the gospel of Jesus Christ." },
-  { icon: Heart, title: "Worshipful Presence", text: "Singing, prayer, and a posture of awe before our Father." },
-  { icon: Users, title: "Authentic Community", text: "Small groups, mentoring, and friendships that love the way Christ loves." },
-  { icon: Calendar, title: "Mission On Purpose", text: "Loving our city, serving the poor, and sharing the hope of the gospel." },
+  { icon: BookOpen, title: "Theological Formation", text: "The St. Cyprian School of Theology provides educational formation for diaconal candidates and committed lay leaders in ECSGS and affiliated communities." },
+  { icon: Heart, title: "Inclusive Catholicism", text: "An ecumenical and inclusive catholic community where all are welcomed — regardless of gender, background, or walk of life." },
+  { icon: Users, title: "Community in Christ", text: "House of Ruth and Junia: a specialized ministry blending Belgian and American roots, serving together under episcopal oversight." },
+  { icon: Calendar, title: "Service & Mission", text: "Living out the call to serve as good shepherds — in our local neighborhoods and through mission partnerships." },
 ];
 
 function Pillars() {
@@ -168,9 +168,9 @@ function Pillars() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="Why WordnWorship"
-            title="A people pursuing Jesus together"
-            subtitle="Four convictions shape everything we do as a church family."
+            eyebrow="Why ECSGS"
+            title="A people called to serve and learn"
+            subtitle="Four convictions shape everything we do as an ecumenical catholic community."
             center
           />
         </Reveal>
@@ -208,9 +208,9 @@ function VerseOfTheDay() {
         <Reveal>
           <Quote className="mx-auto h-10 w-10 text-gold" />
           <p className="mt-8 font-serif text-3xl md:text-5xl leading-snug text-white">
-            "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."
+            "There is neither Jew nor Greek, there is neither slave nor free, there is no male and female, for you are all one in Christ Jesus."
           </p>
-          <p className="mt-8 text-sm tracking-[0.35em] uppercase text-gold">— John 3:16 · Verse Of The Day</p>
+          <p className="mt-8 text-sm tracking-[0.35em] uppercase text-gold">— Galatians 3:28 · Our Guiding Scripture</p>
         </Reveal>
       </div>
     </section>
@@ -218,9 +218,9 @@ function VerseOfTheDay() {
 }
 
 const SERVICES = [
-  { day: "Sunday", time: "9:00 AM & 11:00 AM", title: "Worship Gatherings", desc: "Worship, the Word, and the table — our weekly family gathering." },
-  { day: "Wednesday", time: "7:00 PM", title: "Mid-Week Prayer", desc: "A house of prayer for all nations. All are welcome." },
-  { day: "Friday", time: "6:30 PM", title: "Youth Fellowship", desc: "For students in grades 6–12. Worship, teaching, and games." },
+  { day: "Weekly", time: "In-Person & Zoom", title: "Eucharistic Worship", desc: "Our weekly liturgical gathering around Word, Table, and community. All are welcome at the table regardless of gender, background, or walk of life." },
+  { day: "Ongoing", time: "Zoom & In-Person", title: "St. Cyprian Theology Courses", desc: "Theology formation courses open to diaconal candidates and lay auditors — shared dinner precedes each class at House of Ruth and Junia." },
+  { day: "Open", time: "By Arrangement", title: "House of Ruth and Junia", desc: "A specialized ministry community bridging Belgian and American catholic traditions, under the oversight of Bishop Arturo." },
 ];
 
 function ServicesGrid() {
@@ -229,9 +229,9 @@ function ServicesGrid() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-2 items-end">
           <SectionHeading
-            eyebrow="Plan Your Visit"
-            title="When we gather"
-            subtitle="There's a place for you at every gathering — come as you are."
+            eyebrow="Our Community"
+            title="How we gather"
+            subtitle="In-person, by Zoom, around a shared table — there is a place for you in this community."
           />
           <Link to="/events" className="hidden lg:inline-flex justify-self-end items-center gap-2 text-sm font-semibold text-navy hover:text-gold transition-colors">
             See full calendar <ArrowRight className="h-4 w-4" />
@@ -254,6 +254,32 @@ function ServicesGrid() {
   );
 }
 
+function DeanHighlight() {
+  return (
+    <section className="py-24 bg-cream">
+      <div className="mx-auto max-w-5xl px-6">
+        <Reveal>
+          <div className="rounded-3xl bg-navy text-white p-10 md:p-14 shadow-elegant">
+            <span className="text-xs font-semibold tracking-[0.35em] uppercase text-gold">A Word from the Dean…</span>
+            <div className="mt-6 space-y-5 font-serif italic text-lg md:text-xl leading-relaxed text-white/90">
+              <p>"We are excited to participate in this new educational formation adventure! For the past year and a half, we have launched and taught five courses. Our St. Cyprian students have attended as have other members in the Saint Matthew community."</p>
+              <p>"About half of our participants come to the class 'live' — we share a dinner at House of Ruth and Junia prior to class — and the other half join us by Zoom. With a big screen, we are able to gather in a circle with both the attendees physically present and those coming in by Zoom. And we have some very interesting discussions that bring our studies to life!"</p>
+              <p>"St. Cyprian students have assignments but others just enjoy the experience. Weekly course handouts are available to all, those who come and those online. All classes are videotaped in order to be available to subsequent students."</p>
+            </div>
+            <div className="mt-8 flex items-center gap-4 border-t border-white/15 pt-6">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-gold shadow-gold text-navy font-bold text-lg font-serif">M</span>
+              <div>
+                <p className="font-semibold not-italic">Rev. Mo. Martha</p>
+                <p className="text-xs text-gold tracking-widest uppercase mt-0.5 not-italic">Dean · Saint Cyprian School of Theology · PhD Clinical Psychology</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section className="bg-cream py-24">
@@ -263,14 +289,14 @@ function CTA() {
             <span className="gold-divider mx-auto block w-12" />
             <h2 className="mt-6 font-serif text-4xl md:text-5xl text-white">Take your next step</h2>
             <p className="mt-5 text-white/75 max-w-xl mx-auto">
-              Whether you are exploring faith, returning to the church, or ready to commit your life to Jesus — we would love to walk with you.
+              Whether you are exploring ordained ministry, seeking theological formation, or simply looking for an inclusive catholic community — we welcome you.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <Link to="/contact" className="rounded-full bg-gradient-gold px-7 py-4 text-sm font-semibold text-navy shadow-gold hover:scale-[1.03] transition-transform">
-                I'm New Here
+                Get in Touch
               </Link>
-              <Link to="/community" className="rounded-full border border-white/40 px-7 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
-                Join A Group
+              <Link to="/bible-academy" className="rounded-full border border-white/40 px-7 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+                Explore St. Cyprian School
               </Link>
             </div>
           </div>
@@ -287,6 +313,7 @@ function Home() {
       <Pillars />
       <VerseOfTheDay />
       <ServicesGrid />
+      <DeanHighlight />
       <CTA />
     </>
   );

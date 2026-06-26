@@ -24,10 +24,10 @@ const NAV = [
   { to: "/ministries", label: "Parishes & Missions" },
   { to: "/community", label: "Ministries" },
   { to: "/events", label: "Events" },
-  { to: "/bible-academy", label: "Courses" },
+  { to: "/bible-academy", label: "St. Cyprian School" },
   { to: "/sermons", label: "Media" },
-  { to: "/donations", label: "Donate / Support the Diocese" },
-  { to: "/contact", label: "Calendar" },
+  { to: "/donations", label: "Donate / Support" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
@@ -71,8 +71,8 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-          <div className={`grid h-10 w-10 place-items-center rounded-full border-2 border-dashed text-xs font-semibold transition-transform group-hover:scale-105 duration-300 ${scrolled ? "border-navy text-navy dark:border-white dark:text-white" : "border-white/60 text-white/60"}`}>
-            LOGO
+          <div className={`grid h-10 w-10 place-items-center rounded-full border-2 border-dashed text-[8px] font-semibold text-center leading-tight transition-transform group-hover:scale-105 duration-300 px-1 ${scrolled ? "border-navy text-navy dark:border-white dark:text-white" : "border-white/60 text-white/60"}`}>
+            ECSGS
           </div>
         </Link>
 
